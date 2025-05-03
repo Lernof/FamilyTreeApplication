@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
 public class PeopleViewModel extends ViewModel {
     private final PersonRepository repository;
     private final MutableLiveData<List<Person>> people = new MutableLiveData<>();

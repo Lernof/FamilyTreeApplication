@@ -23,4 +23,8 @@ public class PersonRepository {
     public Person getPersonById(int personId) {
         return personDao.getPersonById(personId);
     }
+
+    public void updatePerson(Person person) {
+        personDao.updatePerson(person);
+    }
 }

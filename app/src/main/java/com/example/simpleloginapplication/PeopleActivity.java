@@ -1,8 +1,11 @@
 package com.example.simpleloginapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.PopupMenu;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -47,6 +50,9 @@ public class PeopleActivity extends AppCompatActivity {
         });
         viewModel.loadPeople();
 
+        // Setup More Options button
+        binding.buttonMoreOptions.setOnClickListener(v -> showPopupMenu(v));
+
         getSupportFragmentManager().addOnBackStackChangedListener(() -> {
             if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
                 binding.recyclerView.setVisibility(View.VISIBLE);
@@ -58,5 +64,24 @@ public class PeopleActivity extends AppCompatActivity {
                 Log.d("PeopleActivity", "Back stack not empty, showing FragmentContainer");
             }
         });
+    }
+
+    private void showPopupMenu(View view) {
+        PopupMenu popup = new PopupMenu(this, view);
+        popup.getMenu().add(0, 1, 0, "Profile");
+        popup.getMenu().add(0, 2, 1, "Exit");
+        popup.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case 1: // Profile
+                    startActivity(new Intent(this, ProfileActivity.class));
+                    return true;
+                case 2: // Exit
+                    finishAffinity(); // Close all activities and exit the app
+                    return true;
+                default:
+                    return false;
+            }
+        });
+        popup.show();
     }
 }
