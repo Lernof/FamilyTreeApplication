@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/tree"/>
+
+    <TextView
+        android:id="@+id/welcomeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Family Tree Application!"
+        android:gravity="center"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/enterTree"
+        android:layout_width="fill_parent"
+        android:backgroundTint="@color/lime"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Enter to the Tree" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/lime"
+        android:text="Logout" />
+
+    <Button
+        android:id="@+id/closeButton"
+        android:layout_width="fill_parent"
+        android:backgroundTint="@color/lime"
+        android:layout_height="wrap_content"
+        android:text="Close App" />
+
+
+
+</LinearLayout>
